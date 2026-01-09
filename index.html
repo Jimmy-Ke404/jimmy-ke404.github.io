@@ -103,40 +103,48 @@
     </section>
 
     <!-- Main Content -->
-    <div class="max-w-5xl mx-auto px-6 py-20 space-y-32">
+    <div class="max-w-6xl mx-auto px-6 py-20 space-y-32"> <!-- Increased width slightly for better grid -->
 
-        <!-- About Section -->
+        <!-- About Section (Redesigned) -->
         <section id="about" class="scroll-mt-24">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <!-- Profile Photo Block (Moved Here) -->
-                    <div class="mb-8 flex justify-center md:justify-start">
-                        <div class="relative w-40 h-40">
-                            <!-- Glow Effect -->
-                            <div class="absolute inset-0 bg-gradient-to-tr from-blue-600 to-indigo-600 rounded-full blur-lg opacity-40 animate-pulse"></div>
-                            <!-- Image -->
-                            <img src="profile_photo.JPG" alt="Zemian Ke" class="relative w-40 h-40 object-cover rounded-full border-4 border-white shadow-2xl bg-gray-200">
+            <div class="grid md:grid-cols-12 gap-12 items-start">
+                
+                <!-- Left Column: Photo (Span 4) -->
+                <div class="md:col-span-4 flex flex-col items-center md:items-start">
+                    <div class="relative w-full aspect-square max-w-sm rounded-3xl overflow-visible">
+                        <!-- Glow Effect -->
+                        <div class="absolute inset-0 bg-gradient-to-tr from-blue-600 to-indigo-600 rounded-3xl blur-2xl opacity-30 animate-pulse"></div>
+                        <!-- Image -->
+                        <img src="profile_photo.JPG" alt="Zemian Ke" class="relative w-full h-full object-cover rounded-3xl border-4 border-white shadow-xl bg-gray-200">
+                    </div>
+                </div>
+
+                <!-- Right Column: Content (Span 8) -->
+                <div class="md:col-span-8 space-y-12">
+                    
+                    <!-- About Text Block -->
+                    <div>
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="p-2 bg-blue-100 rounded-lg text-blue-600"><i data-lucide="terminal" class="w-6 h-6"></i></div>
+                            <h2 class="text-3xl font-bold text-gray-900">About Me</h2>
+                        </div>
+                        <p class="text-lg text-gray-600 leading-relaxed" id="about-text">
+                            <!-- Injected via JS -->
+                        </p>
+                    </div>
+
+                    <!-- Education Block -->
+                    <div>
+                         <div class="flex items-center gap-3 mb-6 border-t border-gray-100 pt-8">
+                            <div class="p-2 bg-indigo-100 rounded-lg text-indigo-600"><i data-lucide="graduation-cap" class="w-6 h-6"></i></div>
+                            <h2 class="text-2xl font-bold text-gray-900">Education</h2>
+                        </div>
+                        <!-- Grid for Education items -->
+                        <div class="grid sm:grid-cols-2 gap-6" id="education-container">
+                            <!-- Education Cards injected here -->
                         </div>
                     </div>
 
-                    <div class="flex items-center gap-3 mb-8">
-                        <div class="p-2 bg-blue-100 rounded-lg text-blue-600"><i data-lucide="terminal" class="w-6 h-6"></i></div>
-                        <h2 class="text-2xl font-bold text-gray-900">About Me</h2>
-                    </div>
-                    <p class="text-lg text-gray-600 leading-relaxed mb-6" id="about-text">
-                        <!-- Injected via JS -->
-                    </p>
-                </div>
-                <div class="relative">
-                    <div class="absolute inset-0 bg-gradient-to-tr from-blue-100 to-indigo-100 rounded-2xl transform rotate-3 -z-10"></div>
-                    <div class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
-                        <h3 class="font-bold text-gray-900 mb-4 flex items-center gap-2">
-                            <i data-lucide="graduation-cap" class="text-blue-600 w-5 h-5"></i> Education
-                        </h3>
-                        <div class="space-y-6" id="education-container">
-                            <!-- Education items injected here -->
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -397,15 +405,17 @@
             document.getElementById('about-text').innerText = DATA.info.about;
             document.getElementById('year').innerText = new Date().getFullYear();
 
-            // Education
+            // Education (Redesigned Cards)
             const eduContainer = document.getElementById('education-container');
             DATA.education.forEach(edu => {
                 eduContainer.innerHTML += `
-                    <div class="border-l-2 border-gray-100 pl-4">
-                        <div class="font-semibold text-gray-900">${edu.school}</div>
-                        <div class="text-sm text-blue-600 font-medium">${edu.degree}</div>
-                        ${edu.subdegree ? `<div class="text-sm text-gray-500">${edu.subdegree}</div>` : ''}
-                        <div class="text-xs text-gray-400 mt-1">${edu.location}</div>
+                    <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-all">
+                        <div class="font-bold text-gray-900 text-lg mb-1">${edu.school}</div>
+                        <div class="text-sm text-blue-600 font-medium mb-3">${edu.degree}</div>
+                        ${edu.subdegree ? `<div class="text-xs text-gray-500 mb-3 bg-gray-50 px-2 py-1 rounded inline-block">${edu.subdegree}</div>` : ''}
+                        <div class="text-xs text-gray-400 flex items-center gap-1.5 mt-2">
+                             <i data-lucide="map-pin" class="w-3.5 h-3.5"></i> ${edu.location}
+                        </div>
                     </div>
                 `;
             });
