@@ -1,214 +1,493 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Zemian Ke · ML Engineer & Researcher</title>
-  <meta name="description" content="Personal website of Zemian Ke – ML Software Engineer at Google and Ph.D. from CMU. Research focus: reinforcement learning, prompt optimization, LLM agents, and GenMedia." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#0b0c10; --card:#121317; --muted:#9aa0a6; --text:#e8eaed; --acc:#4f8cff; --chip:#1b1e25; --line:#21242c;
-      --max: 880px;
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji"}
-    a{color:var(--acc);text-decoration:none}
-    a:hover{text-decoration:underline}
-    header{max-width:var(--max);margin:48px auto 16px;padding:0 20px}
-    .name{font-size:clamp(28px,4.5vw,40px);font-weight:800;letter-spacing:.2px}
-    .tag{color:var(--muted);margin-top:6px;line-height:1.6}
-    nav{display:flex;gap:14px;flex-wrap:wrap;margin-top:14px}
-    .pill{background:var(--chip);border:1px solid var(--line);padding:8px 12px;border-radius:999px;font-size:14px}
-    main{max-width:var(--max);margin:28px auto 80px;padding:0 20px;display:grid;grid-template-columns:1fr;gap:18px}
-    .grid{display:grid;grid-template-columns:1fr;gap:18px}
-    @media(min-width:900px){.grid{grid-template-columns:1fr 1fr}}
-    section.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
-    h2{font-size:18px;margin:0 0 10px}
-    .item{padding:14px 0;border-top:1px solid var(--line)}
-    .item:first-child{border-top:none;padding-top:0}
-    .when, .loc{color:var(--muted);font-size:14px}
-    .role{font-weight:600}
-    ul.tidy{margin:8px 0 0 18px;line-height:1.6}
-    .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
-    .chip{background:var(--chip);border:1px solid var(--line);padding:6px 10px;border-radius:999px;font-size:12px;color:var(--muted)}
-    footer{max-width:var(--max);margin:0 auto 60px;padding:0 20px;color:var(--muted);font-size:14px}
-    .cta{display:inline-flex;align-items:center;gap:8px;background:#193760;color:#fff;border:1px solid #2b4a77;padding:10px 14px;border-radius:10px}
-    .row{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zemian Ke - Portfolio</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        blue: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; }
+    </style>
 </head>
-<body>
-  <header>
-    <div class="name">Zemian Ke</div>
-    <div class="tag">ML Software Engineer @ Google (CoreML). Ph.D. (CMU). Focus on <b>reinforcement learning</b>, <b>prompt optimization</b>, <b>LLM agents</b>, and <b>GenMedia</b>.</div>
-    <nav>
-      <a class="pill" href="mailto:kezemian@gmail.com">Email</a>
-      <a class="pill" href="https://github.com/Jimmy-Ke404" target="_blank" rel="noopener">GitHub</a>
-      <a class="pill" href="https://www.linkedin.com/in/zemiank" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="pill" href="https://scholar.google.com/citations?user=knAUQ7IAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
-      <a class="pill" href="./CV.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+<body class="bg-gray-50 text-gray-800 selection:bg-blue-100">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md z-50 border-b border-gray-200">
+        <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+            <span class="font-bold text-xl tracking-tight text-gray-900">Zemian Ke</span>
+            
+            <div class="hidden md:flex gap-8">
+                <a href="#about" class="text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors">About</a>
+                <a href="#experience" class="text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors">Experience</a>
+                <a href="#publications" class="text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors">Research</a>
+                <a href="#skills" class="text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors">Skills</a>
+            </div>
+
+            <a href="mailto:kezemian@gmail.com" 
+               class="px-4 py-2 bg-blue-600 text-white rounded-full text-sm font-medium hover:bg-blue-700 transition-all shadow-sm hover:shadow-md">
+                Contact Me
+            </a>
+        </div>
     </nav>
-  </header>
 
-  <main>
-    <section class="card">
-      <h2>Highlights</h2>
-      <div class="chips">
-        <span class="chip">Reinforcement Learning</span>
-        <span class="chip">Prompt Optimization</span>
-        <span class="chip">LLM Agents</span>
-        <span class="chip">GenMedia</span>
-        <span class="chip">PyTorch</span>
-        <span class="chip">Python • C++ • SQL</span>
-      </div>
-    </section>
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-[90vh] flex flex-col justify-center items-center pt-16 overflow-hidden">
+        <!-- Canvas for Animation -->
+        <canvas id="network-canvas" class="absolute inset-0 z-0 pointer-events-none opacity-50"></canvas>
+        
+        <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+            <div class="inline-block px-3 py-1 mb-6 text-xs font-semibold tracking-wider text-blue-600 uppercase bg-blue-50 rounded-full border border-blue-100">
+                Available for Collaboration
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-gray-900 mb-6 tracking-tight leading-tight">
+                Make intelligence <br />
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
+                    reusable and useful
+                </span>
+            </h1>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed" id="hero-tagline">
+                <!-- Injected via JS -->
+            </p>
+            
+            <div class="flex flex-wrap justify-center gap-4 mb-16">
+                <a href="https://github.com/Jimmy-Ke404" target="_blank" class="flex items-center gap-2 px-6 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-all font-medium">
+                    <i data-lucide="github" class="w-5 h-5"></i>
+                    GitHub
+                </a>
+                <a href="#publications" class="flex items-center gap-2 px-6 py-3 bg-white text-gray-900 border border-gray-200 rounded-lg hover:border-gray-300 hover:shadow-sm transition-all font-medium">
+                    <i data-lucide="book-open" class="w-5 h-5"></i>
+                    Publications
+                </a>
+            </div>
 
-    <section class="card">
-      <div class="row"><h2>Experience</h2><span class="when">2024—Present</span></div>
-      <div class="item">
-        <div class="role">Machine Learning Software Engineer — Google CoreML</div>
-        <div class="when">Sep 2024 – Present • Mountain View, CA</div>
-        <ul class="tidy">
-          <li>Prompt optimization for ML tasks, LLM agents, and GenMedia models.</li>
-          <li>Serving fine‑tuning and inference on GenMedia models.</li>
-        </ul>
-      </div>
-      <div class="item">
-        <div class="role">Applied Scientist — Amazon Prime Video</div>
-        <div class="when">Jul 2024 – Sep 2024 • Seattle, WA</div>
-        <ul class="tidy">
-          <li>Audio‑to‑audio translation for Prime Video; human‑preference MT projects.</li>
-          <li>Proposed confidence‑aware sampling for LLM preference data.</li>
-        </ul>
-      </div>
-      <div class="item">
-        <div class="role">Applied Scientist Intern — Amazon Buyer Fraud Prevention</div>
-        <div class="when">May 2023 – Aug 2023 • Seattle, WA</div>
-        <ul class="tidy">
-          <li>LLM‑based investigation framework for challenging orders; end‑to‑end pipeline from JSON to predictions.</li>
-          <li>~30% automation lift estimated; >$2M annual savings; only project (of 18) shipped to production.</li>
-        </ul>
-      </div>
-      <div class="item">
-        <div class="role">Research Assistant — CMU Mobility Data Analytics Center</div>
-        <div class="when">Aug 2020 – Jul 2024 • Pittsburgh, PA</div>
-        <ul class="tidy">
-          <li>Physics‑guided deep reinforcement learning for real‑time routing; outperformed PPO/SAC in system‑optimal routing.</li>
-          <li>MoE for traffic speed under recurrent / non‑recurrent conditions; multimodal data integration.</li>
-          <li>Ride‑hailing routing to reduce costs and improve fairness; optimal pricing saving congestion hours.</li>
-        </ul>
-      </div>
-      <div class="item">
-        <div class="role">Research Assistant — SEU Urban Intelligent Transportation Lab</div>
-        <div class="when">Aug 2017 – Jun 2020 • Nanjing, China</div>
-        <ul class="tidy">
-          <li>Deep reinforcement learning (DDQN)-based traffic control; mitigated merging‑bottleneck congestion by ~35%–50% with safety constraints.</li>
-          <li>Transfer learning to boost reinforcement learning policy transfer; 32%–70% training reduction on new scenarios.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="card grid">
-      <div>
-        <h2>Education</h2>
-        <div class="item">
-          <div class="role">Carnegie Mellon University</div>
-          <div class="when">Ph.D., Advanced Infrastructure Systems • 2020–2024</div>
-          <div class="when">M.S., Machine Learning (GPA 3.83) • 2022–2023</div>
+            <div class="flex justify-center gap-6 text-gray-400">
+                <a href="mailto:kezemian@gmail.com" class="p-2 hover:text-blue-600 hover:bg-blue-50 rounded-full transition-all"><i data-lucide="mail" class="w-5 h-5"></i></a>
+                <a href="#" class="p-2 hover:text-blue-600 hover:bg-blue-50 rounded-full transition-all"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                <a href="https://github.com/Jimmy-Ke404" target="_blank" class="p-2 hover:text-blue-600 hover:bg-blue-50 rounded-full transition-all"><i data-lucide="github" class="w-5 h-5"></i></a>
+            </div>
         </div>
-        <div class="item">
-          <div class="role">Southeast University</div>
-          <div class="when">M.S., Transportation Planning & Management • 2017–2020</div>
-          <div class="when">B.E., Traffic Engineering (GPA 3.82) • 2013–2017</div>
+
+        <div class="absolute bottom-10 animate-bounce text-gray-400">
+            <i data-lucide="chevron-down" class="w-6 h-6"></i>
         </div>
-      </div>
-      <div>
-        <h2>Skills</h2>
-        <div class="chips">
-          <span class="chip">PyTorch</span>
-          <span class="chip">TensorFlow</span>
-          <span class="chip">scikit‑learn</span>
-          <span class="chip">Hugging Face</span>
-          <span class="chip">NumPy</span>
-          <span class="chip">pandas</span>
-          <span class="chip">PySpark</span>
-          <span class="chip">QGIS</span>
-          <span class="chip">Python</span>
-          <span class="chip">C++</span>
-          <span class="chip">SQL</span>
+    </section>
+
+    <!-- Main Content -->
+    <div class="max-w-5xl mx-auto px-6 py-20 space-y-32">
+
+        <!-- About Section -->
+        <section id="about" class="scroll-mt-24">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="flex items-center gap-3 mb-8">
+                        <div class="p-2 bg-blue-100 rounded-lg text-blue-600"><i data-lucide="terminal" class="w-6 h-6"></i></div>
+                        <h2 class="text-2xl font-bold text-gray-900">About Me</h2>
+                    </div>
+                    <p class="text-lg text-gray-600 leading-relaxed mb-6" id="about-text">
+                        <!-- Injected via JS -->
+                    </p>
+                    <div class="flex flex-col gap-4">
+                        <div class="p-4 bg-white rounded-xl border border-gray-100 shadow-sm w-full md:w-auto self-start">
+                            <div class="text-3xl font-bold text-blue-600 mb-1">PhD</div>
+                            <div class="text-sm text-gray-500">Advanced Infrastructure Systems @ CMU</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-blue-100 to-indigo-100 rounded-2xl transform rotate-3 -z-10"></div>
+                    <div class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
+                        <h3 class="font-bold text-gray-900 mb-4 flex items-center gap-2">
+                            <i data-lucide="graduation-cap" class="text-blue-600 w-5 h-5"></i> Education
+                        </h3>
+                        <div class="space-y-6" id="education-container">
+                            <!-- Education items injected here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="scroll-mt-24">
+            <div class="flex items-center gap-3 mb-8">
+                <div class="p-2 bg-blue-100 rounded-lg text-blue-600"><i data-lucide="briefcase" class="w-6 h-6"></i></div>
+                <h2 class="text-2xl font-bold text-gray-900">Experience</h2>
+            </div>
+            <div class="space-y-8" id="experience-container">
+                <!-- Experience items injected here -->
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="scroll-mt-24">
+            <div class="flex items-center gap-3 mb-8">
+                <div class="p-2 bg-blue-100 rounded-lg text-blue-600"><i data-lucide="cpu" class="w-6 h-6"></i></div>
+                <h2 class="text-2xl font-bold text-gray-900">Technical Arsenal</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8" id="skills-container">
+                <!-- Skills injected here -->
+            </div>
+        </section>
+
+        <!-- Research Section -->
+        <section id="publications" class="scroll-mt-24">
+            <div class="flex items-center gap-3 mb-8">
+                <div class="p-2 bg-blue-100 rounded-lg text-blue-600"><i data-lucide="file-text" class="w-6 h-6"></i></div>
+                <h2 class="text-2xl font-bold text-gray-900">Selected Publications</h2>
+            </div>
+            <div class="grid gap-6" id="publications-container">
+                <!-- Publications injected here -->
+            </div>
+
+            <!-- Awards Block -->
+            <div class="mt-12 p-8 bg-gradient-to-r from-gray-900 to-gray-800 rounded-2xl text-white relative overflow-hidden">
+                <div class="relative z-10">
+                    <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                        <i data-lucide="award" class="text-yellow-400 w-6 h-6"></i> Honors & Awards
+                    </h3>
+                    <div class="grid sm:grid-cols-2 gap-4" id="awards-container">
+                        <!-- Awards injected here -->
+                    </div>
+                </div>
+                <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-white opacity-5 rounded-full"></div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 py-12 mt-20">
+        <div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-center md:text-left">
+                <h3 class="font-bold text-gray-900">Zemian Ke</h3>
+                <p class="text-sm text-gray-500 mt-1">Machine Learning Software Engineer</p>
+            </div>
+            <div class="flex gap-6">
+                <a href="mailto:kezemian@gmail.com" class="text-gray-400 hover:text-blue-600 transition-colors"><i data-lucide="mail" class="w-5 h-5"></i></a>
+                <a href="https://github.com/Jimmy-Ke404" target="_blank" class="text-gray-400 hover:text-gray-900 transition-colors"><i data-lucide="github" class="w-5 h-5"></i></a>
+                <a href="#" class="text-gray-400 hover:text-blue-700 transition-colors"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+            </div>
+            <div class="text-sm text-gray-400">
+                © <span id="year"></span> Zemian Ke
+            </div>
         </div>
-      </div>
-    </section>
+    </footer>
 
-    <section class="card">
-      <h2>Selected Publications</h2>
-      <div class="item">
-        <div class="role">Large language models for traffic and transportation research: Methodologies, state of the art, and future opportunities</div>
-        <div class="when">arXiv, 2025</div>
-      </div>
-      <div class="item">
-        <div class="role">Real‑time system‑optimal traffic routing under uncertainties – Can physics models boost reinforcement learning?</div>
-        <div class="when">Transportation Research Part C, 2025</div>
-      </div>
-      <div class="item">
-        <div class="role">CRPO: Confidence‑Reward Driven Preference Optimization for Machine Translation</div>
-        <div class="when">Findings of ACL, 2025</div>
-      </div>
-      <div class="item">
-        <div class="role">Serial distributed reinforcement learning for multi‑objective platoon control in curved road coordinates</div>
-        <div class="when">Expert Systems with Applications, 2025</div>
-      </div>
-      <div class="item">
-        <div class="role">Interpretable MoE for time‑series under recurrent & non‑recurrent conditions</div>
-        <div class="when">arXiv, 2024</div>
-      </div>
-      <div class="item">
-        <div class="role">Enhancing reinforcement learning‐based ramp metering performance at freeway uncertain bottlenecks using curriculum learning</div>
-        <div class="when">IET Intelligent Transport Systems, 2024</div>
-      </div>
-      <div class="item">
-        <div class="role">Leveraging Ride‑hailing Services for Social Good: Fleet Optimal Routing & System Optimal Pricing</div>
-        <div class="when">Transportation Research Part C, 2023</div>
-      </div>
-      <div class="item">
-        <div class="role">Coordinated variable speed limit control for consecutive bottlenecks on freeways using multiagent reinforcement learning</div>
-        <div class="when">Journal of advanced transportation, 2023</div>
-      </div>
-      <div class="item">
-        <div class="role">Enhancing transferability of deep reinforcement learning-based variable speed limit control using transfer learning</div>
-        <div class="when">IEEE Transactions on Intelligent Transportation Systems, 2020</div>
-      </div>
-    </section>
+    <!-- JAVASCRIPT LOGIC & DATA -->
+    <script>
+        // --- DATA CONFIGURATION ---
+        // Edit this section to update your website content
+        const DATA = {
+            info: {
+                tagline: "Reinforcement Learning | Foundation Models | LLM Agents | Prompt Optimization. <br/> Currently Machine Learning Engineer at <span class='font-semibold text-gray-900'>Google</span>.",
+                about: "I am a Machine Learning Software Engineer at Google working on Gemini's tool use capabilities and LLM agents. With a Ph.D. from Carnegie Mellon University, my research bridges the gap between theoretical Reinforcement Learning and practical, large-scale infrastructure systems. I specialize in efficient fine-tuning, prompt optimization, and building intelligent agents that solve complex real-world problems."
+            },
+            education: [
+                {
+                    school: "Carnegie Mellon University",
+                    degree: "Ph.D. in Advanced Infrastructure Systems",
+                    subdegree: "M.S. in Machine Learning",
+                    location: "Pittsburgh, PA",
+                },
+                {
+                    school: "Southeast University",
+                    degree: "M.S. Transportation Planning & Management",
+                    subdegree: "B.E. Traffic Engineering",
+                    location: "Nanjing, China",
+                }
+            ],
+            experience: [
+                {
+                    company: "Google",
+                    role: "Machine Learning Software Engineer",
+                    period: "Sep 2024 - Present",
+                    description: "Enhancing Gemini's tool use capabilities and building hill-climbing LLM agents. Focused on prompt optimization for ML tasks, agents, and GenMedia models, as well as serving fine-tuning and inference.",
+                    tech: ["LLMs", "Gemini", "Agents", "Prompt Optimization"]
+                },
+                {
+                    company: "Prime Video, Amazon",
+                    role: "Applied Scientist",
+                    period: "Jul 2024 - Sep 2024",
+                    description: "Worked on audio models for audio-to-audio translation. Involved in machine text translation projects with human preference and proposed a confidence-aware sampling method for preference data.",
+                    tech: ["Audio Models", "Machine Translation", "Human Preference"]
+                },
+                {
+                    company: "Buyer Fraud Prevention, Amazon",
+                    role: "Applied Scientist Intern",
+                    period: "May 2023 - Aug 2023",
+                    result: "Evaluation: Strongly Inclined (Best Level)",
+                    description: "Developed an LLM-based framework for fraud detection on challenging orders. Experimented with LoRA and QLoRA fine-tuning. Delivered a system estimated to increase automation by 30% and save >$2M annually. The only intern project out of 18 pushed to production.",
+                    tech: ["LLMs", "LoRA", "QLoRA", "Fraud Detection"]
+                },
+                {
+                    company: "Mobility Data Analytics Center, CMU",
+                    role: "Research Assistant (PhD Student)",
+                    period: "Aug 2020 - Jul 2024",
+                    description: "Proposed novel Deep RL algorithms combining physics models. Outperformed SOTA RL (PPO, SAC) in vehicle routing. Developed Mixture of Experts (MoE) models for traffic prediction.",
+                    tech: ["Deep RL", "MoE", "PPO", "SAC"]
+                },
+                {
+                    company: "Jiangsu Province Urban Intelligent Transportation Lab",
+                    role: "Research Assistant",
+                    period: "Aug 2017 - Jun 2020",
+                    description: "Developed Deep RL (DDQN) traffic control strategies, mitigating congestion by ~35-50%. Utilized transfer learning for adaptability across scenarios.",
+                    tech: ["DDQN", "Transfer Learning"]
+                }
+            ],
+            skills: {
+                languages: ["Python", "C++", "SQL"],
+                frameworks: ["PyTorch", "Tensorflow", "PySpark", "scikit-learn", "Hugging Face", "NumPy", "SciPy", "pandas", "QGIS"],
+                topics: ["Deep Learning", "Reinforcement Learning", "Large Language Models", "Efficient Fine-tuning", "Prompt Optimization", "Agents"]
+            },
+            publications: [
+                {
+                    title: "Real-time system optimal traffic routing under uncertainties - Can physics models boost reinforcement learning?",
+                    authors: "Zemian Ke, Qiling Zou, Jiachao Liu, Sean Qian",
+                    venue: "Transportation Research Part C",
+                    year: "2025"
+                },
+                {
+                    title: "CRPO: Confidence-Reward Driven Preference Optimization for Machine Translation",
+                    authors: "Guofeng Cui, Pichao Wang, Yang Liu, Zemian Ke, Zhu Liu, Vimal Bhat",
+                    venue: "ACL (Findings)",
+                    year: "2025"
+                },
+                {
+                    title: "Serial distributed reinforcement learning for enhanced multi-objective platoon control",
+                    authors: "Meng Li, Bingtong Wang, Shunchao Wang, Zemian Ke",
+                    venue: "Expert Systems with Applications",
+                    year: "2025"
+                },
+                {
+                    title: "Interpretable mixture of experts for time series prediction under recurrent and non-recurrent conditions",
+                    authors: "Zemian Ke, Haocheng Duan, Sean Qian",
+                    venue: "arXiv",
+                    year: "2024"
+                },
+                {
+                    title: "Leveraging Ride-hailing Services for Social Good: Fleet Optimal Routing and System Optimal Pricing",
+                    authors: "Zemian Ke, Sean Qian",
+                    venue: "Transportation Research Part C",
+                    year: "2023"
+                },
+                {
+                    title: "Enhancing Transferability of Deep Reinforcement Learning-Based Variable Speed Limit Control using Transfer Learning",
+                    authors: "Zemian Ke, Zhibin Li, Zehong Cao, Pan Liu",
+                    venue: "IEEE Transactions on Intelligent Transportation Systems",
+                    year: "2020"
+                }
+            ],
+            awards: [
+                { name: "Chair of INFORMS Session: AI in Transportation", date: "Oct 2023" },
+                { name: "National Science Foundation AI Workshop Award", date: "Nov 2022" },
+                { name: "Dean's Fellowship, Carnegie Mellon University", date: "Oct 2020" },
+                { name: "Southeast Graduate Student Scholarship", date: "Oct 2018" }
+            ]
+        };
 
-    <section class="card">
-      <h2>Honors</h2>
-      <div class="chips">
-        <span class="chip">Chair, INFORMS session (AI in Transportation), 2023</span>
-        <span class="chip">NSF AI Workshop Award, 2022</span>
-        <span class="chip">CMU Dean’s Fellowship, 2020</span>
-      </div>
-    </section>
+        // --- RENDER FUNCTIONS ---
+        
+        function renderContent() {
+            // Text Info
+            document.getElementById('hero-tagline').innerHTML = DATA.info.tagline;
+            document.getElementById('about-text').innerText = DATA.info.about;
+            document.getElementById('year').innerText = new Date().getFullYear();
 
-    <section class="card">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:kezemian@gmail.com">kezemian@gmail.com</a></p>
-    </section>
-  </main>
+            // Education
+            const eduContainer = document.getElementById('education-container');
+            DATA.education.forEach(edu => {
+                eduContainer.innerHTML += `
+                    <div class="border-l-2 border-gray-100 pl-4">
+                        <div class="font-semibold text-gray-900">${edu.school}</div>
+                        <div class="text-sm text-blue-600 font-medium">${edu.degree}</div>
+                        ${edu.subdegree ? `<div class="text-sm text-gray-500">${edu.subdegree}</div>` : ''}
+                        <div class="text-xs text-gray-400 mt-1">${edu.location}</div>
+                    </div>
+                `;
+            });
 
-  <footer>
-    <span>© <script>document.write(new Date().getFullYear())</script> Zemian Ke</span>
-  </footer>
+            // Experience
+            const expContainer = document.getElementById('experience-container');
+            DATA.experience.forEach(job => {
+                const tags = job.tech.map(t => `<span class="px-3 py-1 bg-gray-50 text-gray-600 text-xs font-medium rounded-full border border-gray-100">${t}</span>`).join('');
+                const result = job.result ? `
+                    <div class="mb-6 p-3 bg-green-50 text-green-800 text-sm rounded-lg border border-green-100 flex items-start gap-2">
+                        <i data-lucide="award" class="w-4 h-4 mt-0.5 shrink-0"></i>
+                        <span class="font-medium">${job.result}</span>
+                    </div>` : '';
 
-  <!--
-  Quick deploy (GitHub Pages):
-  1) Create a repo named username.github.io
-  2) Put this file as index.html at repo root
-  3) (Optional) Add your CV as /CV.pdf in repo root to enable the link above
-  4) Commit & push → site lives at https://username.github.io
-  5) Settings → Pages → Source: Deploy from branch (main)
-  Customize colors/sections as needed.
-  -->
+                expContainer.innerHTML += `
+                    <div class="group relative bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md hover:border-blue-100 transition-all">
+                        <div class="absolute top-0 left-0 w-2 h-full bg-blue-600 rounded-l-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-4 gap-2">
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">${job.company}</h3>
+                                <div class="text-lg font-medium text-gray-700">${job.role}</div>
+                            </div>
+                            <div class="text-sm font-medium text-gray-500 bg-gray-50 px-3 py-1 rounded-full whitespace-nowrap">${job.period}</div>
+                        </div>
+                        <p class="text-gray-600 mb-6 leading-relaxed">${job.description}</p>
+                        ${result}
+                        <div class="flex flex-wrap gap-2">${tags}</div>
+                    </div>
+                `;
+            });
+
+            // Skills
+            const skillsContainer = document.getElementById('skills-container');
+            const skillMap = [
+                { title: 'Languages', icon: 'code', color: 'blue', data: DATA.skills.languages },
+                { title: 'Frameworks', icon: 'terminal', color: 'indigo', data: DATA.skills.frameworks },
+                { title: 'Topics', icon: 'cpu', color: 'purple', data: DATA.skills.topics },
+            ];
+            
+            skillMap.forEach(cat => {
+                const pills = cat.data.map(s => `<span class="px-3 py-1.5 bg-${cat.color}-50 text-${cat.color}-700 rounded-md text-sm font-medium">${s}</span>`).join('');
+                skillsContainer.innerHTML += `
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                        <div class="flex items-center gap-2 mb-4 text-${cat.color}-600 font-bold">
+                            <i data-lucide="${cat.icon}" class="w-5 h-5"></i> ${cat.title}
+                        </div>
+                        <div class="flex flex-wrap gap-2">${pills}</div>
+                    </div>
+                `;
+            });
+
+            // Publications
+            const pubContainer = document.getElementById('publications-container');
+            DATA.publications.forEach(pub => {
+                pubContainer.innerHTML += `
+                    <div class="flex flex-col p-6 bg-white border border-gray-200 rounded-xl hover:shadow-md transition-shadow">
+                        <div class="flex justify-between items-start gap-4">
+                            <h4 class="font-bold text-gray-900 text-lg">${pub.title}</h4>
+                            <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs font-bold rounded shrink-0">${pub.year}</span>
+                        </div>
+                        <div class="text-sm text-gray-600 mt-2 mb-3 italic">${pub.authors}</div>
+                        <div class="flex items-center gap-2 text-sm font-medium text-blue-600">
+                            <span>${pub.venue}</span>
+                            <div class="w-1.5 h-1.5 rounded-full bg-blue-600"></div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            // Awards
+            const awdContainer = document.getElementById('awards-container');
+            DATA.awards.forEach(awd => {
+                awdContainer.innerHTML += `
+                    <div class="flex justify-between items-start border-b border-gray-700 pb-2 last:border-0 last:pb-0">
+                        <span class="text-gray-200 text-sm">${awd.name}</span>
+                        <span class="text-gray-500 text-xs ml-2 whitespace-nowrap">${awd.date}</span>
+                    </div>
+                `;
+            });
+            
+            // Re-initialize icons after DOM injection
+            lucide.createIcons();
+        }
+
+        // --- ANIMATION LOGIC ---
+        function startAnimation() {
+            const canvas = document.getElementById('network-canvas');
+            const ctx = canvas.getContext('2d');
+            let width, height;
+            let nodes = [];
+            const numNodes = 40;
+
+            function resize() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            }
+            
+            function initNodes() {
+                nodes = [];
+                for(let i=0; i<numNodes; i++) {
+                    nodes.push({
+                        x: Math.random() * width,
+                        y: Math.random() * height,
+                        vx: (Math.random() - 0.5) * 0.5,
+                        vy: (Math.random() - 0.5) * 0.5
+                    });
+                }
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, width, height);
+                ctx.fillStyle = 'rgba(59, 130, 246, 0.1)'; 
+                ctx.strokeStyle = 'rgba(59, 130, 246, 0.05)';
+
+                nodes.forEach(node => {
+                    node.x += node.vx;
+                    node.y += node.vy;
+
+                    if(node.x < 0 || node.x > width) node.vx *= -1;
+                    if(node.y < 0 || node.y > height) node.vy *= -1;
+
+                    ctx.beginPath();
+                    ctx.arc(node.x, node.y, 2, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    nodes.forEach(otherNode => {
+                        const dx = node.x - otherNode.x;
+                        const dy = node.y - otherNode.y;
+                        const dist = Math.sqrt(dx*dx + dy*dy);
+
+                        if(dist < 150) {
+                            ctx.beginPath();
+                            ctx.moveTo(node.x, node.y);
+                            ctx.lineTo(otherNode.x, otherNode.y);
+                            ctx.stroke();
+                        }
+                    });
+                });
+                requestAnimationFrame(animate);
+            }
+
+            window.addEventListener('resize', () => {
+                resize();
+                // Don't re-init nodes on resize to prevent popping, just let them float off screen or wrap
+            });
+            
+            resize();
+            initNodes();
+            animate();
+        }
+
+        // --- INIT ---
+        document.addEventListener('DOMContentLoaded', () => {
+            renderContent();
+            startAnimation();
+        });
+
+    </script>
 </body>
 </html>
