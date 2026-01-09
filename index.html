@@ -115,12 +115,6 @@
                     <p class="text-lg text-gray-600 leading-relaxed mb-6" id="about-text">
                         <!-- Injected via JS -->
                     </p>
-                    <div class="flex flex-col gap-4">
-                        <div class="p-4 bg-white rounded-xl border border-gray-100 shadow-sm w-full md:w-auto self-start">
-                            <div class="text-3xl font-bold text-blue-600 mb-1">PhD</div>
-                            <div class="text-sm text-gray-500">Advanced Infrastructure Systems @ CMU</div>
-                        </div>
-                    </div>
                 </div>
                 <div class="relative">
                     <div class="absolute inset-0 bg-gradient-to-tr from-blue-100 to-indigo-100 rounded-2xl transform rotate-3 -z-10"></div>
@@ -230,14 +224,43 @@
                     company: "Google",
                     role: "Machine Learning Software Engineer",
                     period: "Sep 2024 - Present",
-                    description: "Enhancing Gemini's tool use capabilities and building hill-climbing LLM agents. Focused on prompt optimization for ML tasks, agents, and GenMedia models, as well as serving fine-tuning and inference.",
+                    projects: [
+                        {
+                            title: "Foundation model (Gemini) training and LLM agents",
+                            items: [
+                                "Enhancing Gemini's tool use capabilities.",
+                                "Building LLM agents."
+                            ]
+                        },
+                        {
+                            title: "Prompt Optimization and GenMedia",
+                            items: [
+                                "Prompt optimization for ML tasks, agents, and GenMedia models.",
+                                "Serving fine-tuning and inference on GenMedia models."
+                            ]
+                        }
+                    ],
                     tech: ["LLMs", "Gemini", "Agents", "Prompt Optimization"]
                 },
                 {
                     company: "Prime Video, Amazon",
                     role: "Applied Scientist",
                     period: "Jul 2024 - Sep 2024",
-                    description: "Worked on audio models for audio-to-audio translation. Involved in machine text translation projects with human preference and proposed a confidence-aware sampling method for preference data.",
+                    projects: [
+                        {
+                            title: "Audio-to-Audio Translation",
+                            items: [
+                                "Worked on audio models to produce audio-to-audio translation for Prime videos."
+                            ]
+                        },
+                        {
+                            title: "Machine Translation with Human Preference",
+                            items: [
+                                "Involved in machine text translation projects with human preference.",
+                                "Proposed a confidence-aware sampling method for preference data."
+                            ]
+                        }
+                    ],
                     tech: ["Audio Models", "Machine Translation", "Human Preference"]
                 },
                 {
@@ -245,21 +268,62 @@
                     role: "Applied Scientist Intern",
                     period: "May 2023 - Aug 2023",
                     result: "Evaluation: Strongly Inclined (Best Level)",
-                    description: "Developed an LLM-based framework for fraud detection on challenging orders. Experimented with LoRA and QLoRA fine-tuning. Delivered a system estimated to increase automation by 30% and save >$2M annually. The only intern project out of 18 pushed to production.",
+                    projects: [
+                        {
+                            title: "LLM-based Fraud Detection Framework",
+                            items: [
+                                "Developed an LLM-based framework to investigate most challenging Amazon orders for fraud detection.",
+                                "Extensively experimented on various LLMs and fine tuning methods (Full, LoRA, QLoRA).",
+                                "Introduced an end-to-end fraud detection system, estimated to increase automation by 30% and save >$2M annually.",
+                                "This project was the only one out of 18 intern projects pushed to production."
+                            ]
+                        }
+                    ],
                     tech: ["LLMs", "LoRA", "QLoRA", "Fraud Detection"]
                 },
                 {
                     company: "Mobility Data Analytics Center, CMU",
                     role: "Research Assistant (PhD Student)",
                     period: "Aug 2020 - Jul 2024",
-                    description: "Proposed novel Deep RL algorithms combining physics models. Outperformed SOTA RL (PPO, SAC) in vehicle routing. Developed Mixture of Experts (MoE) models for traffic prediction.",
+                    projects: [
+                        {
+                            title: "Physics-Informed Deep RL",
+                            items: [
+                                "Proposed a novel deep reinforcement learning algorithm that simultaneously learns from environments and physics model-based polices.",
+                                "Consistently outperformed the state-of-the-art reinforcement learning (e.g., PPO, SAC) in real-time vehicle routing problems."
+                            ]
+                        },
+                        {
+                            title: "Mixture of Experts (MoE) for Traffic Prediction",
+                            items: [
+                                "Developed a Mixture of Experts (MoE) model to improve traffic speed prediction under recurrent and non-recurrent conditions.",
+                                "Integrated multi-source datasets to train the model, achieving lower errors and providing interpretable insights."
+                            ]
+                        },
+                        {
+                            title: "Ride-hailing Optimization",
+                            items: [
+                                "Developed a novel ride-hailing routing algorithm to reduce operation costs while maintaining fairness.",
+                                "Proposed a novel pricing scheme saving 700 congestion hours with cost of less than $2,000 in Pittsburgh."
+                            ]
+                        }
+                    ],
                     tech: ["Deep RL", "MoE", "PPO", "SAC"]
                 },
                 {
                     company: "Jiangsu Province Urban Intelligent Transportation Lab",
                     role: "Research Assistant",
                     period: "Aug 2017 - Jun 2020",
-                    description: "Developed Deep RL (DDQN) traffic control strategies, mitigating congestion by ~35-50%. Utilized transfer learning for adaptability across scenarios.",
+                    projects: [
+                        {
+                            title: "Deep RL (DDQN) Traffic Control",
+                            items: [
+                                "Developed a deep reinforcement learning (DDQN)-based traffic control strategy.",
+                                "Mitigated traffic congestion on a real world freeway merging bottleneck by 35-50% while satisfying safety constraints.",
+                                "Utilized transfer learning to improve adaptability and shortened training processes on new scenarios by 32-69%."
+                            ]
+                        }
+                    ],
                     tech: ["DDQN", "Transfer Learning"]
                 }
             ],
@@ -345,19 +409,39 @@
                         <span class="font-medium">${job.result}</span>
                     </div>` : '';
 
+                // Generate Project List HTML
+                const projectsHtml = job.projects ? 
+                    `<div class="space-y-5 mb-6">` + job.projects.map(p => `
+                        <div>
+                            <h4 class="font-bold text-gray-800 text-sm uppercase tracking-wide mb-2 flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
+                                ${p.title}
+                            </h4>
+                            <ul class="list-none ml-2 space-y-1.5">
+                                ${p.items.map(item => `
+                                    <li class="relative pl-4 text-gray-600 text-sm leading-relaxed before:content-[''] before:absolute before:left-0 before:top-2 before:w-1 before:h-1 before:bg-gray-300 before:rounded-full">
+                                        ${item}
+                                    </li>`).join('')}
+                            </ul>
+                        </div>
+                    `).join('') + `</div>` 
+                    : `<p class="text-gray-600 mb-6 leading-relaxed">${job.description}</p>`;
+
                 expContainer.innerHTML += `
                     <div class="group relative bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md hover:border-blue-100 transition-all">
                         <div class="absolute top-0 left-0 w-2 h-full bg-blue-600 rounded-l-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                        <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-4 gap-2">
+                        <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-6 gap-2 border-b border-gray-50 pb-4">
                             <div>
                                 <h3 class="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">${job.company}</h3>
                                 <div class="text-lg font-medium text-gray-700">${job.role}</div>
                             </div>
                             <div class="text-sm font-medium text-gray-500 bg-gray-50 px-3 py-1 rounded-full whitespace-nowrap">${job.period}</div>
                         </div>
-                        <p class="text-gray-600 mb-6 leading-relaxed">${job.description}</p>
+                        
+                        ${projectsHtml}
                         ${result}
-                        <div class="flex flex-wrap gap-2">${tags}</div>
+                        
+                        <div class="flex flex-wrap gap-2 mt-4 pt-4 border-t border-gray-50">${tags}</div>
                     </div>
                 `;
             });
